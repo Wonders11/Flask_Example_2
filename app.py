@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template
+from flask import Flask,request,jsonify
 
 app = Flask(__name__)
 
@@ -15,18 +15,18 @@ def math_operation():
     # above inputs we will get from HTML or Postman and then we will process the data
 
     if operation == "add":
-        result = num1 + num2
+        result = int(num1) + int(num2)
 
     elif operation == "multiply":
-        result = num1*num2
+        result = int(num1) * int(num2)
 
     elif operation == "division":
-        result = num1/num2
+        result = int(num1) / int(num2)
     
     else:
-        result = num1 - num2
+        result = int(num1) - int(num2)
 
-    return result
+    return jsonify(result)
 
 print(__name__)
 
